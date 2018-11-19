@@ -43,6 +43,7 @@ newArr.forEach(function(book){
 
 // Beast Mode
 // experment by doing the same thing but with factory & constructor functions
+
 // Factory function:
 
 function factoryBook(title, isbn, author) {
@@ -58,3 +59,22 @@ function factoryBook(title, isbn, author) {
 let book1 = factoryBook("Harry Potter", "12345", "JK Rowling");
 book1.register();
 book1.countUsers();
+
+// Prototype
+function Book(title, isbn, author) {
+  this.title = title;
+  this.isbn = isbn;
+  this.author = author;
+}
+
+Book.prototype.countUsers = function() {
+   console.log("There are 50 users");
+}
+
+Book.prototype.register = function() {
+   console.log(this.title+' is now registered');
+}
+
+let book1 = new Book('harry potter', '12345', 'jk rowling');
+book1.countUsers();
+book1.register();
